@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { Types } from "mongoose";
 import CustomError from "../helpers/CustomError";
+import getCountries from "../helpers/getCountries";
 import handleError from "../helpers/handleError";
 import { validateEmail, validatePassword } from "../helpers/validate";
 import verifyJWT from "../helpers/verifyJWT";
@@ -168,6 +169,30 @@ export async function checkLoginRequest(
 			throw new CustomError(400, "All fields are required.");
 
 		res.locals = { ...res.locals, email, password };
+		next();
+	} catch (e) {
+		handleError(res, e as CatchError);
+	}
+}
+
+export async function checkAvailableCountry(
+	req: Request,
+	res: Response,
+	next: NextFunction
+) {
+	try {
+		const countries = getCountries();
+		const { country } = res.locals;
+
+		type Countries = keyof typeof countries;
+
+		if (!Object.keys(countries).includes(country))
+			throw new CustomError(404, `Country doesn't exist.`);
+		if (await UserModel.exists({ country }))
+			throw new CustomError(
+				401,
+				`${countries[country as Countries]} already has registered president.`
+			);
 		next();
 	} catch (e) {
 		handleError(res, e as CatchError);

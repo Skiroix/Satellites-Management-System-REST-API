@@ -7,13 +7,20 @@ import {
 	checkRegisterRequest,
 	checkLoginRequest,
 	checkUserExist,
+	checkAvailableCountry,
 } from "../middleware";
 
 const router = Router();
 
 router.post(
 	"/register",
-	[checkRegisterRequest, verifyEmail, verifyPassword, checkUserExist],
+	[
+		checkRegisterRequest,
+		checkAvailableCountry,
+		verifyEmail,
+		verifyPassword,
+		checkUserExist,
+	],
 	registerUser
 );
 router.post(
