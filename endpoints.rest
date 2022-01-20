@@ -1,0 +1,53 @@
+POST http://localhost:3000/users/register
+Content-Type: application/json
+
+{
+    "fullName": "Adrian Nowek",
+	"country": "PL",
+	"email": "adrian.nowek11d1@gmail.com",
+	"password": "kukl@1",
+	"isRedButton": true
+}
+
+###
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "email": "adrian.nowek111@gmail.com",
+	"password": "kukl@1"
+}
+
+
+###
+POST http://localhost:3000/satellites/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWU2OWE2M2VmOTE0YTQ2NGM4ZmQ4YzAiLCJlbWFpbCI6ImFkcmlhbi5ub3dlazExZDFAZ21haWwuY29tIiwiaWF0IjoxNjQyNTAyNzU1fQ._1jyQGJLf411Z_SYNs3ejPHWrqdN_8Dgty4ii5X5yAg
+
+{
+	"sideNumber": "E200",
+	"producent": "Test",
+	"model": "T-400",
+	"version": "v00",
+	"launchedAt": 1642500235941,
+	"numberOfMissiles": 15,
+	"orbitAltitude": 600,
+	"isAI": true,
+	"builtAt": 1642500235941,
+	"ownedBy": "jiwhuiehuwheuihwuieh"
+}
+
+###
+PUT http://localhost:3000/satellites/61e6efbcb7bbb0e4b1603f62
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWU2OWE2M2VmOTE0YTQ2NGM4ZmQ4YzAiLCJlbWFpbCI6ImFkcmlhbi5ub3dlazExZDFAZ21haWwuY29tIiwiaWF0IjoxNjQyNTAyNzU1fQ._1jyQGJLf411Z_SYNs3ejPHWrqdN_8Dgty4ii5X5yAg
+
+{
+	"numberOfMissiles": 5
+}
+
+
+
+###
+DELETE http://localhost:3000/satellites/61e6e2782160a615e03da1e6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWU2OWE2M2VmOTE0YTQ2NGM4ZmQ4YzAiLCJlbWFpbCI6ImFkcmlhbi5ub3dlazExZDFAZ21haWwuY29tIiwiaWF0IjoxNjQyNTAyNzU1fQ._1jyQGJLf411Z_SYNs3ejPHWrqdN_8Dgty4ii5X5yAg

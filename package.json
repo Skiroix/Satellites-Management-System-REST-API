@@ -1,0 +1,40 @@
+{
+  "name": "etap2-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "scripts": {
+    "dev": "nodemon src/server.ts",
+    "build": "tsc",
+    "start": "node build/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Skiroix/etap-2-server.git"
+  },
+  "keywords": [],
+  "author": "Adrian Nowek",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.7"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.6",
+    "@types/node": "^17.0.2",
+    "nodemon": "^2.0.15",
+    "typescript": "^4.5.4"
+  },
+  "engines": {
+    "node": "16.x",
+    "npm": "8.x"
+  },
+  "homepage": "https://github.com/Skiroix/etap-2-server#readme"
+}
